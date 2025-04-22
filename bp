@@ -25,10 +25,8 @@ W2 = np.random.uniform(-1, 1, (hidden_size, output_size))
 
 b2 = np.random.uniform(-1, 1, (1, output_size))  
 
-
 epochs = 10000
 learning_rate = 0.1
-
 
 for epoch in range(epochs):
     
@@ -38,14 +36,9 @@ for epoch in range(epochs):
     final_input = np.dot(hidden_output, W2) + b2  
     predicted_output = sigmoid(final_input)  
 
-    
     error = (y - predicted_output)
     
-   
     error2 = error * sigmoid_derivative(predicted_output)
-   
-
-
    
     error1 = np.dot(error2, W2.T) * sigmoid_derivative(hidden_output)
 
