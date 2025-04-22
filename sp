@@ -35,7 +35,7 @@ print("\nSome Test Predictions:")
 for i in range(5):
     print(f"Input: {X_test[i]}, Predicted class: {iris.target_names[y_pred[i]]}, Actual class: {iris.target_names[y_test[i]]}")
 
-
+-------------------------------------------------------------------------------------
 
 import numpy as np
 
