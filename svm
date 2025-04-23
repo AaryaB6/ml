@@ -8,25 +8,25 @@ X, y = make_classification(
     n_features=2, n_classes=2, n_informative=2, n_redundant=0, random_state=42
 )
 
-# Train a linear SVM
+
 svm = SVC(kernel='linear')
 svm.fit(X, y)
 
-# Extract coefficients and intercept
+
 w = svm.coef_[0]
 b = svm.intercept_[0]
 
-# Define decision boundary
+
 x0 = np.linspace(min(X[:, 0]), max(X[:, 0]), 100)
 x1 = -(w[0] / w[1]) * x0 - b / w[1]
 
-# Plot data points
+
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap='coolwarm', s=50, edgecolor='k')
 
-# Plot decision boundary
+
 plt.plot(x0, x1, 'k-', label='Hyperplane')
 
-# Add labels and legend
+
 plt.xlabel("Feature 1")
 plt.ylabel("Feature 2")
 plt.title("SVM Decision Boundary")
