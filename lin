@@ -1,0 +1,25 @@
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt 
+
+data = {'X': [100,110,120,130,140], 'Y': [50, 55, 67, 74,85]} 
+df = pd.DataFrame(data) 
+a = df['X'].mean() 
+b = df['Y'].mean() 
+print(f"Mean of X is {a}") 
+print(f"Mean of Y is {b}") 
+ 
+df['X1'] = df['X'] - a df['Y1'] = df['Y'] - b df['XY'] = df['X1'] * df['Y1'] df['X2'] = df['X1'] * df['X1'] 
+print(df) 
+
+w1 = df['XY'].sum() / df['X2'].sum() w0 = b - (df['XY'].sum() / df['X2'].sum()) * a 
+ x = int(input("Enter the value of x: ")) y = w0 + w1*x 
+print(f"Value of y for x = {x} is {y}") 
+ 
+plt.scatter(df['X'], df['Y'], color='blue', label='Data Points') 
+plt.plot(df['X'], w0 + w1 * df['X'], color='red', label='Regression Line') 
+plt.title('Graph between X(Height) and Y(Weight)') 
+plt.xlabel('Height(cm)') 
+plt.ylabel('Weight(kg)') 
+plt.legend() 
+plt.show() 
