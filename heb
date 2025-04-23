@@ -50,6 +50,6 @@ plt.ylabel('Weight Value')
 plt.title('Weight Updates in Hebbian Learning')
 plt.legend()
 plt.grid(True)
-plt.show()"""
+plt.show()
 
   
