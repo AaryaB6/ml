@@ -46,40 +46,39 @@ print(f"Predicted output for input {test_input}: {predicted_output}")
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Hebbian learning function
+
 def hebbian_learning(inputs, outputs, learning_rate):
     # Initialize weights to small random values
     num_inputs = inputs.shape[1]
     weights = np.zeros(num_inputs)  # Weights will be a 1D array with size equal to the number of inputs
 
-    # Iterate through the training data
+    
     for i in range(len(inputs)):
         # Update weights according to the Hebbian rule: w = w + η * x * y
         weights += learning_rate * inputs[i] * outputs[i]
 
     return weights
 
-# Training data: Let's assume we have 3 input neurons (features) and binary output
-# Inputs (x1, x2, x3)
+
 inputs = np.array([
     [1, 0, 1],  # Input 1
     [1, 1, 0],  # Input 2
     [0, 1, 1],  # Input 3
 ])
 
-# Corresponding outputs (y)
+
 outputs = np.array([1, 0, 1])  # Desired outputs
 
-# Set learning rate (η)
+
 learning_rate = 0.1
 
-# Train the network using Hebbian learning
+
 weights = hebbian_learning(inputs, outputs, learning_rate)
 
-# Display the final weights
+
 print("Final weights after Hebbian learning:", weights)
 
-# Visualizing how the weights change after each iteration
+
 iterations = np.arange(1, len(inputs) + 1)
 weight_values = np.zeros((len(iterations), len(weights)))
 
@@ -87,8 +86,8 @@ weight_values = np.zeros((len(iterations), len(weights)))
 for i in range(len(iterations)):
     weight_values[i] = hebbian_learning(inputs[:i+1], outputs[:i+1], learning_rate)
 
-# Plot the weight changes over iterations
-"""plt.plot(iterations, weight_values[:, 0], label="Weight 1")
+
+plt.plot(iterations, weight_values[:, 0], label="Weight 1")
 plt.plot(iterations, weight_values[:, 1], label="Weight 2")
 plt.plot(iterations, weight_values[:, 2], label="Weight 3")
 plt.xlabel('Iteration')
