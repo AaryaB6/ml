@@ -2,16 +2,16 @@ import numpy as np
 from scipy.stats import norm
 
 def expectation_maximization(X, num_clusters=2, max_iters=100, tol=1e-4):
-
+   
     np.random.seed(42)
     mu = np.random.choice(X, num_clusters)  
     sigma = np.full(num_clusters, np.var(X))  
-    pi = np.full(num_clusters, 1 / num_clusters)  
+    pi = np.full(num_clusters, 1 / num_clusters) 
 
-    X = np.array(X)  
+    X = np.array(X) 
 
     for iteration in range(max_iters):
-       
+        
         responsibilities = np.zeros((len(X), num_clusters))
         for j in range(num_clusters):
             responsibilities[:, j] = pi[j] * norm.pdf(X, mu[j], np.sqrt(sigma[j]))
@@ -23,11 +23,11 @@ def expectation_maximization(X, num_clusters=2, max_iters=100, tol=1e-4):
         new_sigma = np.sum(responsibilities * (X[:, np.newaxis] - new_mu) ** 2, axis=0) / N_k
         new_pi = N_k / len(X)
 
-      
+       
         if np.allclose(mu, new_mu, atol=tol) and np.allclose(sigma, new_sigma, atol=tol):
             break
 
-        mu, sigma, pi = new_mu, new_sigma, new_pi 
+        mu, sigma, pi = new_mu, new_sigma, new_pi  
     return mu, sigma, pi, responsibilities
 
 
