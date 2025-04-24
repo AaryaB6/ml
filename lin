@@ -13,3 +13,14 @@ mymodel = list(map(myfunc, x))
 plt.scatter(x,y)
 plt.plot(x, mymodel)
 plt.show()
+
+pip install pandas 
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+mean_X =df[‘Hours Worked’].mean()
+mean_Y =df[‘Weekly profit’].mean()
+print(f’ mean_X={mean_X}’)
+print(f ‘mean_Y={mean_Y}’)
