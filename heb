@@ -16,13 +16,13 @@ def hebbian_learning(inputs, outputs, learning_rate):
 
 
 inputs = np.array([
-    [1, 0, 1],  # Input 1
-    [1, 1, 0],  # Input 2
-    [0, 1, 1],  # Input 3
+    [1, 0, 1],  
+    [1, 1, 0],  
+    [0, 1, 1],  
 ])
 
 
-outputs = np.array([1, 0, 1])  # Desired outputs
+outputs = np.array([1, 0, 1])  
 
 
 learning_rate = 0.1
