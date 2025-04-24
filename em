@@ -27,8 +27,7 @@ def expectation_maximization(X, num_clusters=2, max_iters=100, tol=1e-4):
         if np.allclose(mu, new_mu, atol=tol) and np.allclose(sigma, new_sigma, atol=tol):
             break
 
-        mu, sigma, pi = new_mu, new_sigma, new_pi  # Update parameters
-
+        mu, sigma, pi = new_mu, new_sigma, new_pi 
     return mu, sigma, pi, responsibilities
 
 
