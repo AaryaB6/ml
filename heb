@@ -3,13 +3,12 @@ import matplotlib.pyplot as plt
 
 
 def hebbian_learning(inputs, outputs, learning_rate):
-    # Initialize weights to small random values
+   
     num_inputs = inputs.shape[1]
-    weights = np.zeros(num_inputs)  # Weights will be a 1D array with size equal to the number of inputs
-
+    weights = np.zeros(num_inputs) 
     
     for i in range(len(inputs)):
-        # Update weights according to the Hebbian rule: w = w + η * x * y
+        
         weights += learning_rate * inputs[i] * outputs[i]
 
     return weights
